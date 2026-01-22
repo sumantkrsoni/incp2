@@ -1,306 +1,422 @@
-/* Variables */
-:root {
-    --primary: #008080; /* Teal */
-    --secondary: #2c3e50; /* Slate */
-    --light: #f4f6f7;
-    --accent: #e74c3c; /* Red for alerts */
-    --white: #ffffff;
-    --text: #333333;
-}
-
-/* General Reset */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text);
+/* =========================================
+   1. General Reset & Variables
+   ========================================= */
+* {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth; /* Enables smooth scrolling */
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
+:root {
+    /* Institutional Colors (Maroon & Gold) */
+    --primary-color: #800000; 
+    --secondary-color: #d4af37; 
+    --light-bg: #fffbfb;
+    --white: #ffffff;
+    --text-color: #333;
+    --text-light: #f4f4f4;
 }
 
-/* Utilities */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-.text-accent {
-    color: var(--accent);
-}
-
-.bg-light {
-    background-color: var(--light);
-}
-
-/* Header & Nav */
+/* =========================================
+   2. Header & Navigation
+   ========================================= */
 header {
-    background: var(--white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--primary);
+    color: var(--white);
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
-    padding: 0;
-    margin: 0;
 }
 
 .nav-links a {
+    color: var(--white);
     text-decoration: none;
-    color: var(--secondary);
     font-weight: 500;
-    font-size: 0.95rem;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--primary);
+    color: var(--secondary-color);
 }
 
-/* Hero Section */
+/* =========================================
+   3. Hero Section
+   ========================================= */
 .hero {
-    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    background: linear-gradient(135deg, #800000 0%, #5a0000 100%);
     color: var(--white);
-    padding: 80px 0;
+    padding: 4rem 2rem;
     text-align: center;
+    border-bottom: 5px solid var(--secondary-color);
 }
 
 .hero h1 {
-    margin: 0 0 10px 0;
     font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 .hero h2 {
     font-size: 1.2rem;
     font-weight: 400;
     margin-bottom: 20px;
-    opacity: 0.9;
+    color: #eee;
 }
 
 .hero-badges {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+    margin: 20px 0;
     flex-wrap: wrap;
-    margin-top: 20px;
 }
 
 .badge {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.9rem;
 }
 
 .highlight-badge {
-    background: var(--accent);
+    background-color: var(--secondary-color);
+    color: #000;
     font-weight: bold;
 }
 
 .hero-subtext {
-    margin-top: 20px;
+    margin-top: 15px;
     font-size: 0.9rem;
+    opacity: 0.9;
 }
 
-/* Section Common Styles */
+/* =========================================
+   4. Layout & Sections
+   ========================================= */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 section {
-    padding: 60px 0;
-    border-bottom: 1px solid #eee;
+    padding: 4rem 0;
+}
+
+.bg-light {
+    background-color: #f3f3f3;
 }
 
 h2 {
-    color: var(--secondary);
-    border-left: 5px solid var(--primary);
-    padding-left: 15px;
-    margin-bottom: 30px;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary-color);
+    margin: 10px auto 0;
 }
 
 h3 {
-    color: #444;
-    margin-top: 25px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-    display: inline-block;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-/* Lists & Topics */
+ul {
+    list-style-position: inside;
+    margin-bottom: 1rem;
+}
+
 .topics-list {
-    list-style: none;
-    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
+    gap: 1rem;
+    list-style: none;
 }
 
 .topics-list li {
-    background: var(--light);
+    background: var(--white);
     padding: 15px;
-    border-left: 3px solid var(--primary);
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Speakers */
+/* =========================================
+   5. Speakers Section
+   ========================================= */
 .speaker-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .speaker-card {
     background: var(--white);
-    padding: 20px;
-    border: 1px solid #eee;
+    padding: 30px 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 3px solid var(--primary-color);
+}
+
+.speaker-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.speaker-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.speaker-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.speaker-link:hover .speaker-name {
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 .speaker-name {
-    font-weight: bold;
-    color: var(--primary);
     display: block;
-    margin-bottom: 5px;
+    font-weight: bold;
     font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
 }
 
 .speaker-affil {
+    display: block;
     font-size: 0.9rem;
     color: #666;
+    margin-bottom: 10px;
 }
 
-/* Registration */
+/* =========================================
+   6. Committee Section (New Hierarchy Layout)
+   ========================================= */
+.committee-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.patron-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.patron-card {
+    background: #fff5f5; /* Slight highlight for Patron */
+    border-color: #800000;
+    max-width: 600px;
+    width: 100%;
+}
+
+.core-committee-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.role-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.committee-list p {
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   7. Schedule Table
+   ========================================= */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.schedule-table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* =========================================
+   8. Registration & Venue
+   ========================================= */
 .reg-box {
     background: var(--white);
-    border: 2px solid var(--primary);
-    padding: 30px;
-    border-radius: 10px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
+    border: 1px solid #ddd;
 }
 
 .reg-highlight {
-    color: var(--accent);
+    background-color: #ffeeba;
+    color: #856404;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
     font-weight: bold;
-    font-size: 1.2rem;
 }
 
 .fee-table {
     width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
+    margin: 20px 0;
     border-collapse: collapse;
 }
 
 .fee-table th, .fee-table td {
-    border: 1px solid #ddd;
     padding: 10px;
+    border: 1px solid #ddd;
 }
 
 .fee-table th {
-    background: var(--secondary);
-    color: var(--white);
-}
-
-.bank-details-placeholder {
-    background: #f9f9f9;
-    padding: 15px;
-    margin: 20px 0;
-    border: 1px dashed #ccc;
+    background-color: #f1f1f1;
 }
 
 .btn-register {
     display: inline-block;
-    background: var(--accent);
+    background-color: var(--primary-color);
     color: var(--white);
-    padding: 15px 40px;
-    text-decoration: none;
+    padding: 12px 30px;
     border-radius: 5px;
+    text-decoration: none;
     font-weight: bold;
     margin-top: 20px;
-    font-size: 1.1rem;
     transition: background 0.3s;
 }
 
 .btn-register:hover {
-    background: #c0392b;
+    background-color: #5a0000;
 }
 
-/* Committee */
-.committee-list {
-    columns: 2;
-    column-gap: 40px;
-}
-
-@media (max-width: 768px) {
-    .committee-list {
-        columns: 1;
-    }
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-}
-
-/* Tourism */
 .tourism-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
     margin-top: 20px;
 }
 
 .place-card {
-    background: var(--light);
+    background: var(--primary-color);
+    color: var(--white);
     padding: 15px;
-    text-align: center;
     border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
-/* Footer */
+/* =========================================
+   9. Footer & Responsive
+   ========================================= */
 footer {
-    background: var(--secondary);
-    color: var(--white);
-    padding: 40px 0;
-    margin-top: 50px;
-    font-size: 0.9rem;
+    background-color: #222;
+    color: #aaa;
+    padding: 3rem 0;
+    margin-top: auto;
 }
 
 .footer-cols {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    gap: 2rem;
 }
 
 .footer-cols h4 {
     color: var(--white);
-    border-bottom: 2px solid var(--primary);
-    padding-bottom: 10px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color);
     display: inline-block;
+    padding-bottom: 5px;
 }
 
 .copyright {
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid #444;
     padding-top: 20px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; 
+        /* Note: For a real mobile menu, you would need JS toggling */
+    }
+    .hero h1 {
+        font-size: 1.8rem;
+    }
 }
